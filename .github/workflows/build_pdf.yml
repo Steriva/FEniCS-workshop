@@ -9,8 +9,7 @@ on:
   workflow_call:
 
 env:
-  # Directory that will be published on github pages
-  PUBLISH_DIR: ./_build/html
+  # Directory where the PDF will be saved
   PDF_OUTPUT_DIR: ./_build/latex
   DEB_PYTHON_INSTALL_LAYOUT: deb_system
   PYVISTA_TRAME_SERVER_PROXY_PREFIX: "/proxy/"
@@ -19,6 +18,7 @@ env:
   PYVISTA_JUPYTER_BACKEND: "html"
   LIBGL_ALWAYS_SOFTWARE: 1
   DISPLAY: ":99.0"
+
 jobs:
   build-docs:
     env:
