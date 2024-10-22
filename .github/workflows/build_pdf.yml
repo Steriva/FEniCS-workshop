@@ -41,19 +41,8 @@ jobs:
       - name: Install dependencies
         run: python3 -m pip install -e ".[dev]"
 
-      - name: Build docs (HTML)
-        run: jupyter book build -W .
-
       - name: Build docs (PDF)
         run: jupyter book build -W . --builder pdflatex
-
-      - name: Upload documentation as artifact (HTML)
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: documentation-html
-          path: ${{ env.PUBLISH_DIR }}
-          if-no-files-found: error
 
       - name: Upload documentation as artifact (PDF)
         uses: actions/upload-artifact@v4
